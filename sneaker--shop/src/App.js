@@ -1,13 +1,13 @@
 import { useDispatch } from 'react-redux';
 import {useEffect} from 'react';
 import './App.css';
-import {getAllSnakersAsync} from './store/snakerActions'
+import {getAllSneakersAsync} from './store/sneakerActions'
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllSnakersAsync())
+    dispatch(getAllSneakersAsync())
     // eslint-disable-next-line 
   },[])
 

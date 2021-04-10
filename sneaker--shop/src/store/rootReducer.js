@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux'
-import snakerReducer from './snakerRecuder'
+import sneakerReducer from './sneakerRecuder'
 
 const rootReducer = combineReducers({
-    snakers: snakerReducer,
+    sneakers: sneakerReducer,
 })
 
 export default rootReducer;
