@@ -1,5 +1,4 @@
 import React from "react";
-import "../css/navbar.css";
 import { Link } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import Logo from "./Logo";
