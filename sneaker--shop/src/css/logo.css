@@ -1,0 +1,10 @@
+.logo {
+  padding: 10px 20px;
+}
+
+.logo i {
+  font-size: 50px;
+  background: -webkit-linear-gradient(#ff5f6d, #ffc371);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
