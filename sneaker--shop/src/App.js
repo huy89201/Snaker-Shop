@@ -1,8 +1,5 @@
 import "./App.css";
-import { useDispatch } from "react-redux";
-import { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { getAllSneakersAsync } from "./store/sneakerActions";
 import { makeStyles } from "@material-ui/core/styles";
 import Fab from "@material-ui/core/Fab";
 import Zoom from "@material-ui/core/Zoom";
@@ -51,13 +48,7 @@ function ScrollTop(props) {
 }
 
 function App() {
-  const dispatch = useDispatch();
   const classes = useStyles();
-
-  useEffect(() => {
-    dispatch(getAllSneakersAsync());
-    // eslint-disable-next-line
-  }, []);
 
   return (
     <div className="App">
@@ -74,7 +65,7 @@ function App() {
           <Route path="/cardpage">
             <Cardpage />
           </Route>
-          <Route path="/detailItemsPage">
+          <Route path="/detailItemsPage:itemid">
             <DetailItemsPage />
           </Route>
           <Route path="/">

@@ -5,9 +5,9 @@ import {Link} from 'react-router-dom'
 function Logo() {
   return (
     <div className="logo--wrapper">
-      <div class="logo">
+      <div className="logo">
         <Link to="/">
-          <i class="fa fa-free-code-camp" aria-hidden="true"></i>
+          <i className="fa fa-free-code-camp" aria-hidden="true"></i>
         </Link>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import Logo from "./Logo";
 import Search from "./Search";
-import ClearIcon from "@material-ui/icons/Clear";
+import Menu from "./Menu";
+import MobileMenu from "./MobileMenu";
 import {
   makeStyles,
   useScrollTrigger,
@@ -12,12 +12,6 @@ import {
   Toolbar,
   Slide,
   IconButton,
-  List,
-  ListItem,
-  ListItemText,
-  Drawer,
-  Hidden,
-  Avatar,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("md")]: {
       display: "none",
     },
     color: "red",
@@ -59,6 +53,10 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(20),
     height: theme.spacing(20),
     margin: "0 auto",
+    marginTop: "2rem",
+  },
+  fontsize: {
+    fontSize: "4rem",
   },
 }));
 
@@ -79,52 +77,6 @@ function Navbar() {
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
-  const menuItems = [
-    {
-      title: "Home",
-      link: "/",
-    },
-    {
-      title: "Categories",
-      link: "/catergorise",
-    },
-    {
-      title: "About",
-      link: "/about",
-    },
-    {
-      title: "Contact",
-      link: "/contact",
-    },
-  ];
-
-  const drawer = (
-    <>
-      <IconButton onClick={handleDrawerToggle} className={classes.IconButton}>
-        <ClearIcon fontSize="large" className={classes.ClearIcon} />
-      </IconButton>
-
-      <Avatar className={classes.Avatar} />
-
-      <List>
-        {menuItems.map((item) => (
-          <ListItem
-            button
-            key={item.title}
-            component={Link}
-            to={item.link}
-            onClick={handleDrawerToggle}
-          >
-            <ListItemText
-              primary={item.title}
-              classes={{ primary: classes.ListItemText }}
-            />
-          </ListItem>
-        ))}
-      </List>
-    </>
-  );
-
   return (
     <div className="navbar--wrapper">
       <HideOnScroll>
@@ -133,6 +85,7 @@ function Navbar() {
             <Toolbar className={classes.Toolbar}>
               <Logo />
               <Search />
+              <Menu />
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
@@ -140,22 +93,10 @@ function Navbar() {
                 onClick={handleDrawerToggle}
                 className={classes.menuButton}
               >
-                <MenuIcon />
+                <MenuIcon className={classes.fontsize} />
               </IconButton>
             </Toolbar>
-            <Hidden smUp implementation="css">
-              <Drawer
-                anchor="left"
-                open={mobileOpen}
-                transitionDuration={400}
-                onClose={handleDrawerToggle}
-                classes={{
-                  paper: classes.drawerPaper,
-                }}
-              >
-                {drawer}
-              </Drawer>
-            </Hidden>
+            <MobileMenu mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle}/>
           </Container>
         </AppBar>
       </HideOnScroll>

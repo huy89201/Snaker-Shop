@@ -27,13 +27,15 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     fontSize: "30px",
+    [theme.breakpoints.down("xs")]: {
+      display: "none",
+    },
   },
   inputRoot: {
     color: "inherit",
   },
   inputInput: {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
     transition: theme.transitions.create("width"),
     width: "100%",
@@ -43,6 +45,10 @@ const useStyles = makeStyles((theme) => ({
         width: "20ch",
       },
     },
+    [theme.breakpoints.down("xs")]: {
+      padding: theme.spacing(1)
+    },
+    height: '2rem'
   },
   fontSize: {
     fontSize: "30px",
